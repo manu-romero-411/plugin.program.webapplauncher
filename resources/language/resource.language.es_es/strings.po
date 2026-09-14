@@ -1,0 +1,102 @@
+# Kodi Media Center language file
+# Addon Name: WebApp Launcher
+# Addon id: plugin.program.webapplauncher
+# Addon Provider: Manu
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "General"
+msgstr "General"
+
+msgctxt "#30001"
+msgid "Launchers"
+msgstr "Lanzadores"
+
+msgctxt "#30002"
+msgid "Launchers folder"
+msgstr "Carpeta de lanzadores"
+
+msgctxt "#30003"
+msgid "Folder containing the .webapp launcher files."
+msgstr "Carpeta que contiene los ficheros de lanzador .webapp."
+
+msgctxt "#30004"
+msgid "Icons subfolder name"
+msgstr "Nombre de la subcarpeta de iconos"
+
+msgctxt "#30005"
+msgid "Subfolder (inside the launchers folder) where cover art is stored, matched by file name."
+msgstr "Subcarpeta (dentro de la carpeta de lanzadores) donde se guardan las caratulas, asociadas por nombre de fichero."
+
+msgctxt "#30006"
+msgid "Executor script"
+msgstr "Script ejecutor"
+
+msgctxt "#30007"
+msgid "Executable script (bash or python) used to run every launcher. It receives the full path to the .webapp file as its only argument."
+msgstr "Script ejecutable (bash o python) usado para lanzar cada elemento. Recibe la ruta completa del fichero .webapp como unico argumento."
+
+msgctxt "#30008"
+msgid "Behaviour"
+msgstr "Comportamiento"
+
+msgctxt "#30009"
+msgid "Prettify labels"
+msgstr "Embellecer etiquetas"
+
+msgctxt "#30010"
+msgid "Turn file names such as my_cool_app into \"My Cool App\" for display."
+msgstr "Convierte nombres como my_cool_app en \"My Cool App\" para mostrarlos."
+
+msgctxt "#30011"
+msgid "Minimize Kodi while a launcher is running"
+msgstr "Minimizar Kodi mientras se ejecuta un lanzador"
+
+msgctxt "#30012"
+msgid "Send Kodi to the background before launching, useful in single-GPU or single-monitor setups."
+msgstr "Envia Kodi a segundo plano antes de lanzar, util en equipos con una sola GPU o un solo monitor."
+
+msgctxt "#30013"
+msgid "Wait for the launcher to exit"
+msgstr "Esperar a que el lanzador termine"
+
+msgctxt "#30014"
+msgid "Block Kodi until the launched process finishes, then restore the window. Disable for launchers that should keep running in the background."
+msgstr "Bloquea Kodi hasta que el proceso lanzado termine y despues restaura la ventana. Desactivalo para lanzadores que deban seguir en segundo plano."
+
+msgctxt "#30020"
+msgid "No launchers folder configured"
+msgstr "No hay carpeta de lanzadores configurada"
+
+msgctxt "#30021"
+msgid "Pick the folder that contains your .webapp files"
+msgstr "Elige la carpeta que contiene tus ficheros .webapp"
+
+msgctxt "#30022"
+msgid "No executor script configured. Open the add-on settings first."
+msgstr "No hay script ejecutor configurado. Abre antes los ajustes del addon."
+
+msgctxt "#30023"
+msgid "No valid launchers found in the configured folder"
+msgstr "No se han encontrado lanzadores validos en la carpeta configurada"
+
+msgctxt "#30024"
+msgid "Launcher not found or invalid (missing url?): %s"
+msgstr "Lanzador no encontrado o invalido (¿falta url?): %s"
+
+msgctxt "#30025"
+msgid "Could not launch %s"
+msgstr "No se ha podido lanzar %s"
+
+msgctxt "#30026"
+msgid "Configured folder does not exist"
+msgstr "La carpeta configurada no existe"
+
+msgctxt "#30027"
+msgid "Open add-on settings"
+msgstr "Abrir ajustes del addon"
+
+msgctxt "#30028"
+msgid "Launching..."
+msgstr "Lanzando..."

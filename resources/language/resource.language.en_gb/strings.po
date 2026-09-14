@@ -1,0 +1,102 @@
+# Kodi Media Center language file
+# Addon Name: WebApp Launcher
+# Addon id: plugin.program.webapplauncher
+# Addon Provider: Manu
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Launchers"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Launchers folder"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Folder containing the .webapp launcher files."
+msgstr ""
+
+msgctxt "#30004"
+msgid "Icons subfolder name"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Subfolder (inside the launchers folder) where cover art is stored, matched by file name."
+msgstr ""
+
+msgctxt "#30006"
+msgid "Executor script"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Executable script (bash or python) used to run every launcher. It receives the full path to the .webapp file as its only argument."
+msgstr ""
+
+msgctxt "#30008"
+msgid "Behaviour"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Prettify labels"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Turn file names such as my_cool_app into \"My Cool App\" for display."
+msgstr ""
+
+msgctxt "#30011"
+msgid "Minimize Kodi while a launcher is running"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Send Kodi to the background before launching, useful in single-GPU or single-monitor setups."
+msgstr ""
+
+msgctxt "#30013"
+msgid "Wait for the launcher to exit"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Block Kodi until the launched process finishes, then restore the window. Disable for launchers that should keep running in the background."
+msgstr ""
+
+msgctxt "#30020"
+msgid "No launchers folder configured"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Pick the folder that contains your .webapp files"
+msgstr ""
+
+msgctxt "#30022"
+msgid "No executor script configured. Open the add-on settings first."
+msgstr ""
+
+msgctxt "#30023"
+msgid "No valid launchers found in the configured folder"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Launcher not found or invalid (missing url?): %s"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Could not launch %s"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Configured folder does not exist"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Open add-on settings"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Launching..."
+msgstr ""

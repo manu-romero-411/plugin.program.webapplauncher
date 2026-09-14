@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.webapplauncher"
+       name="WebApp Launcher"
+       version="1.0.2"
+       provider-name="Manu">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Launch .webapp shortcuts from a folder</summary>
+        <summary lang="es_ES">Lanza accesos directos .webapp desde una carpeta</summary>
+        <description lang="en_GB">
+            Scans a configured folder for .webapp launcher files and lists them as
+            a menu, using cover art from an app-icons subfolder. Each entry can be
+            added to Kodi Favourites or bound to a skin shortcut, and is executed
+            through a user-configured external script (bash or python).
+        </description>
+        <description lang="es_ES">
+            Escanea una carpeta configurada en busca de ficheros de lanzador
+            .webapp y los muestra como un menu, usando caratulas desde una
+            subcarpeta app-icons. Cada elemento puede anadirse a Favoritos de
+            Kodi o usarse como acceso directo desde un tema, y se ejecuta
+            mediante un script externo configurado por el usuario (bash o
+            python).
+        </description>
+        <platform>linux</platform>
+        <license>MIT</license>
+        <forum></forum>
+        <website></website>
+        <source></source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
