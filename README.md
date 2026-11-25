@@ -99,6 +99,17 @@ Puedes apuntar un botón/widget del tema directamente a esa URL con
 `RunPlugin(...)` o `ActivateWindow(...)` según lo que soporte el skin, sin
 depender de que el usuario navegue el listado completo.
 
+## Kodi en Flatpak
+
+Dentro del Flatpak de Kodi (`tv.kodi.Kodi`, el que instala Retrobox en
+x86_64) los programas del sistema no se ven: el addon detecta el sandbox y
+ejecuta el comando en el sistema con `flatpak-spawn --host`. Para eso el
+Flatpak necesita permiso para hablar con `org.freedesktop.Flatpak`:
+
+```
+flatpak override --user --talk-name=org.freedesktop.Flatpak tv.kodi.Kodi
+```
+
 ## Instalación
 
 1. Copia la carpeta `plugin.program.webapplauncher` a
@@ -113,4 +124,9 @@ depender de que el usuario navegue el listado completo.
   adelante).
 - Comentarios, docstrings y mensajes de log en inglés; textos de la UI
   localizados vía `strings.po` (inglés + español incluidos).
-- `pylint` sobre `resources/lib/*.py` y `default.py`: 10.00/10.
+- `pylint` sobre `resources/lib/*.py`, `default.py` y `tests/`: 10.00/10
+  (con los stubs de la API de Kodi: `pip install Kodistubs`).
+- `resources/lib/launchers.py` no depende de Kodi; sus tests:
+  `python3 -m unittest discover tests`.
+- El `.gitignore` ignora `/lib/` solo en la raíz: un `lib/` a secas (el de
+  la plantilla de Python) dejaba `resources/lib` fuera del repositorio.
