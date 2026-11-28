@@ -14,8 +14,8 @@ import xbmcgui
 import xbmcplugin
 
 from . import launchers, runner
-from .common import (ADDON, handle, log, plugin_url, setting_bool, setting_string,
-                     text, warn)
+from .common import (ADDON, handle, log, plugin_url, setting_bool, setting_path,
+                     setting_string, text, warn)
 
 ICON = os.path.join(ADDON.getAddonInfo("path"), "icon.png")
 FANART = os.path.join(ADDON.getAddonInfo("path"), "fanart.jpg")
@@ -30,7 +30,7 @@ def notify(message: str, error: bool = False) -> None:
 def launchers_folder(ask: bool) -> str:
     """The configured launchers folder; when there is none and ``ask``, the
     one the user picks now (saved in the settings)."""
-    folder = setting_string("launchers_folder")
+    folder = setting_path("launchers_folder")
     if folder or not ask:
         return folder
     folder = xbmcgui.Dialog().browseSingle(0, text(30021), "files")
@@ -91,7 +91,7 @@ def run_launcher(key: str) -> None:
         notify(text(30024) % key, error=True)
         return
     try:
-        arguments = launchers.command(launcher, setting_string("executor_script"))
+        arguments = launchers.command(launcher, setting_path("executor_script"))
     except ValueError as error:
         warn(str(error))
         notify(text(30022) if not launcher.custom_command else text(30025) % launcher.label,

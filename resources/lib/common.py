@@ -1,6 +1,7 @@
 """Kodi's side of the add-on: its settings, texts, log and plugin URLs."""
 from __future__ import annotations
 
+import os
 import sys
 from urllib.parse import parse_qsl, urlencode
 
@@ -48,6 +49,11 @@ def warn(message: str) -> None:
 def setting_string(setting: str) -> str:
     """A text setting, without surrounding spaces."""
     return ADDON.getSettingString(setting).strip()
+
+
+def setting_path(setting: str) -> str:
+    """A path setting, with a leading ``~`` expanded (Kodi does not)."""
+    return os.path.expanduser(setting_string(setting))
 
 
 def setting_bool(setting: str) -> bool:

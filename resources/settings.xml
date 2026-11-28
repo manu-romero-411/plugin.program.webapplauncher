@@ -5,7 +5,7 @@
             <group id="1" label="30001">
                 <setting id="launchers_folder" type="path" label="30002" help="30003">
                     <level>0</level>
-                    <default/>
+                    <default>~/.local/share/retrobox/apps</default>
                     <constraints>
                         <allowempty>true</allowempty>
                         <writable>true</writable>
@@ -21,7 +21,7 @@
                 </setting>
                 <setting id="executor_script" type="string" label="30006" help="30007">
                     <level>0</level>
-                    <default/>
+                    <default>/opt/retrobox/bin/retrobox-webapp-launcher</default>
                     <constraints>
                         <allowempty>true</allowempty>
                     </constraints>
