@@ -30,21 +30,34 @@ def host_command(arguments: list[str]) -> list[str]:
     return arguments
 
 
+GRACE_SECONDS = 2.0
+
+
 def run(arguments: list[str], minimize: bool, wait: bool) -> bool:
-    """Start the command (after minimizing Kodi, if asked) and, if asked,
-    wait for it to end. Whether it could be started (and, when waited for,
-    ended with 0)."""
+    """Start the command and, if asked, wait for it to end. Kodi is minimized
+    (if asked) only once the command has survived a moment, so that a command
+    which cannot even start does not leave a black screen behind. Whether it
+    could be started (and, when waited for, ended with 0)."""
     arguments = host_command(arguments)
     log(f"running: {arguments!r}")
-    if minimize:
-        xbmc.executebuiltin("Minimize")
     try:
-        # its own session, so that it outlives the plugin's process
-        with subprocess.Popen(arguments, stdin=subprocess.DEVNULL, start_new_session=True,
-                              close_fds=True) as process:
+        # its own session, so that it outlives the plugin's process. Not used as
+        # a context manager: leaving that would wait for the command to end,
+        # whatever "wait" says.
+        # pylint: disable-next=consider-using-with
+        process = subprocess.Popen(arguments, stdin=subprocess.DEVNULL, start_new_session=True,
+                                   close_fds=True)
+        try:
+            status = process.wait(timeout=GRACE_SECONDS)
+        except subprocess.TimeoutExpired:
+            if minimize:
+                xbmc.executebuiltin("Minimize")
             if not wait:
                 return True
             status = process.wait()
+        else:
+            if status == 0 and minimize:
+                xbmc.executebuiltin("Minimize")
     except OSError as error:
         warn(f"cannot run {arguments[0]}: {error}")
         return False
