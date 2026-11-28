@@ -56,7 +56,7 @@ def list_launchers() -> None:
     """The menu: one entry per valid launcher, each runnable, so Kodi's own
     context menu adds it to the favourites."""
     plugin = handle()
-    xbmcplugin.setContent(plugin, "files")
+    xbmcplugin.setContent(plugin, "movies" if setting_bool("poster_views") else "files")
     folder = launchers_folder(ask=True)
     entries = []
     if not folder:
@@ -70,8 +70,10 @@ def list_launchers() -> None:
     for launcher in entries:
         item = xbmcgui.ListItem(launcher.label)
         art = launcher.art or ICON
-        item.setArt({"poster": art, "thumb": art, "icon": art, "fanart": FANART})
+        item.setArt({"poster": art, "thumb": art, "icon": art, "landscape": art,
+                     "fanart": FANART})
         tag = item.getVideoInfoTag()
+        tag.setMediaType("movie")
         tag.setTitle(launcher.label)
         tag.setPlot(launcher.url)
         item.addContextMenuItems([(text(30027), f"Addon.OpenSettings({ADDON.getAddonInfo('id')})")])

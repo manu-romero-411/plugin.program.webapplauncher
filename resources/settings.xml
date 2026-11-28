@@ -34,6 +34,11 @@
                     <default>true</default>
                     <control type="toggle"/>
                 </setting>
+                <setting id="poster_views" type="boolean" label="30029" help="30030">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
                 <setting id="minimize_on_launch" type="boolean" label="30011" help="30012">
                     <level>0</level>
                     <default>true</default>

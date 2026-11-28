@@ -100,3 +100,11 @@ msgstr "Abrir ajustes del addon"
 msgctxt "#30028"
 msgid "Launching..."
 msgstr "Lanzando..."
+
+msgctxt "#30029"
+msgid "Poster views"
+msgstr "Vistas de carteles"
+
+msgctxt "#30030"
+msgid "List the launchers as movies, so the skin offers its poster, wall and shift views (as files it only offers icons and lists). Square icons look best in the wall views."
+msgstr "Lista los lanzadores como peliculas, para que el skin ofrezca sus vistas de cartel, pared y shift (como ficheros solo ofrece iconos y listas). Los iconos cuadrados quedan mejor en las vistas de pared."
