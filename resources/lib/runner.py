@@ -32,14 +32,44 @@ def host_command(arguments: list[str]) -> list[str]:
 
 GRACE_SECONDS = 2.0
 
+# Run on the host, after the command has ended: brings Kodi's window back.
+# Wayland (wlroots compositors, such as labwc) through wlrctl; X11 through
+# xdotool or wmctrl. The first one found that works wins.
+RESTORE_SCRIPT = """
+"$@"
+status=$?
+have() { command -v "$1" >/dev/null 2>&1; }
+if [ -n "$WAYLAND_DISPLAY" ] && have wlrctl; then
+    for id in Kodi kodi tv.kodi.Kodi; do
+        wlrctl toplevel focus "app_id:$id" 2>/dev/null && exit "$status"
+    done
+fi
+if [ -n "$DISPLAY" ]; then
+    if have xdotool; then
+        xdotool search --onlyvisible --class kodi windowactivate 2>/dev/null \\
+            || xdotool search --class kodi windowmap windowactivate 2>/dev/null \\
+            && exit "$status"
+    fi
+    if have wmctrl; then
+        wmctrl -x -a kodi 2>/dev/null && exit "$status"
+    fi
+fi
+exit "$status"
+"""
+
+
+def with_restore(arguments: list[str]) -> list[str]:
+    """The command, followed on the host by bringing Kodi's window back."""
+    return ["sh", "-c", RESTORE_SCRIPT, "sh", *arguments]
+
 
 def run(arguments: list[str], minimize: bool, wait: bool) -> bool:
     """Start the command and, if asked, wait for it to end. Kodi is minimized
     (if asked) only once the command has survived a moment, so that a command
     which cannot even start does not leave a black screen behind. Whether it
     could be started (and, when waited for, ended with 0)."""
-    arguments = host_command(arguments)
     log(f"running: {arguments!r}")
+    arguments = host_command(with_restore(arguments) if minimize else arguments)
     try:
         # its own session, so that it outlives the plugin's process. Not used as
         # a context manager: leaving that would wait for the command to end,
